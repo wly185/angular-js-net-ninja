@@ -1,0 +1,23 @@
+<div ng-controller="listController" ng-init="showCondition=true">
+
+  <button ng-click="order='name'">sort by name</button>
+  <button ng-click="order='language'">sort by language</button>
+
+  <input ng-model="search" type="text">
+  <table style="width:100%;">
+    <tr style="display:flex; flex:1; flex-direction:row; ">
+      <th style="flex:0.33"> country</th>
+      <th style="flex:0.33"> language</th>
+      <th style="flex:0.33"> edit</th>
+    </tr>
+    <tr style="flex:1;display:flex; flex-direction: row;" ng-show=showCondition
+      ng-repeat="item in items |orderBy:order |filter:search">
+      <td style="flex:0.33;border:1px solid; display:flex;justify-content: center; align-items: center;">
+        {{item.name}}</td>
+      <td style="flex:0.33;border:1px solid; display:flex;justify-content: center; align-items: center;">
+        {{item.language}}</td>
+      <td style="flex:0.33;border:1px solid; display:flex;justify-content: center; align-items: center;"><button
+          ng-click="removeItem(item)">xy</button></td>
+    </tr>
+  </table>
+</div>
